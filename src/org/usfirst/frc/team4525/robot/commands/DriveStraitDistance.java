@@ -1,29 +1,34 @@
 
 package org.usfirst.frc.team4525.robot.commands;
+
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team4525.robot.OI;
 import org.usfirst.frc.team4525.robot.Robot;
 import org.usfirst.frc.team4525.robot.RobotMap;
 
 /**
  *
  */
-public class XboxControllerDrive extends Command {
+public class DriveStraitDistance extends Command {
+
+	//private static Gyro gyro;
 	
-    public XboxControllerDrive() {
+    public DriveStraitDistance() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.drive);
+        //requires(Robot.exampleSubsystem);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//gyro = new Gyro(RobotMap.analogGyroInput);
+    	//gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
-    
     protected void execute() {
-    	Robot.drive.arcadeDrive(OI.getDriveStickAxis(RobotMap.driveForwardBackward), OI.getDriveStickAxis(RobotMap.driveLeftRight));
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +38,6 @@ public class XboxControllerDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drive.tankDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
